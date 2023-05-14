@@ -1,0 +1,156 @@
+body {
+  background: #f9f9f9 url(../img/white_texture.jpg) repeat top left;
+  color: #333;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 13px;
+}
+
+.main {
+  width: 690px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.view {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  float: left;
+  border: 10px solid #fff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: pointer;
+}
+.view .mask,
+.view .content {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+/* .view .mask {
+  background-color: rgba(219, 127, 8, 0.7);
+} */
+.view img {
+  display: block;
+  position: relative;
+}
+img {
+  width: 289px;
+}
+.view h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 20px 0 0 0;
+}
+.view p {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  position: relative;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+.view a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+}
+.viewa.info:hover {
+  box-shadow: 0 0 5px #000;
+}
+
+/* ANIMACIONES Y TRANSICIONES */
+
+/* Ocultar el título, el texto y el enlace "Leer más" */
+.tittle {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.paragraph {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.mask a {
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+/* ocultar el fondo */
+.mask {
+  background-image: linear-gradient(transparent, transparent);
+  transition: background-size 4s ease-in-out;
+  background-size: 0% 100%;
+}
+/* Reducir la imagen y agregar un borde */
+.view-first img {
+  transform: scale(0.9);
+  border: 5px solid white;
+  transition: transform 0.5s ease-in-out;
+}
+/* Al pasar el mouse, muestra el fondo, el título, el texto y el enlace "Leer más" */
+.view-first:hover .mask {
+  background-image: linear-gradient(
+      to right,
+      rgba(218, 179, 41, 0.5),
+      rgba(255, 200, 0, 0.5)
+    ),
+    url("img/img01.jpg");
+  background-size: 100% 100%;
+  transition: transform 0.8s ease;
+}
+.view-first:hover h2,
+.view-first:hover p,
+.view-first:hover a {
+  opacity: 1;
+}
+/* Al pasar el mouse, hacer crecer la imagen y cambiar el borde */
+.view-first:hover img {
+  transform: scale(1);
+  border: 5px solid rgba(255, 200, 0, 0.5);
+  transition: transform 0.8s ease;
+}
+
+/* ANIMACIONES parrafo de abajo hacia arriba  */
+
+.mask {
+  position: relative;
+}
+
+.paragraph {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.mask:hover .paragraph {
+  transform: translateY(0%);
+}
+
+/* ANIMACIONES titulo de arriba hacia abajo  */
+
+.view .mask h2 {
+  opacity: 0;
+  position: relative;
+  top: -20px;
+  transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.view:hover .mask h2 {
+  opacity: 1;
+  top: 0;
+}
